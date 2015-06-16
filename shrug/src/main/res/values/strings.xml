@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="app_name">@string/shrug</string>
+  <string name="settings_name">@string/shrug</string>
+  <string name="language_selection_title">Input languages</string>
+  <string name="select_language">Select input languages</string>
+  <string name="shrug">¯\\_(ツ)_/¯</string>
+  <string name="switch_keyboard">Switch keyboard</string>
+  <string name="content_description_return">Return</string>
+  <string name="content_description_send">Send</string>
+  <string name="content_description_search">Search</string>
+  <string name="content_description_next">Next</string>
+  <string name="content_description_go">Go</string>
+  <string name="content_description_previous">Previous</string>
+</resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.codebutler.shrug.ShrugKeyboardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/keyboard_background_lxx_light">
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:id="@+id/button_key_shrug"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/shrug"
+        android:background="@drawable/btn_keyboard_key_lxx_light"
+        android:textSize="26sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/button_key_switch"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_keyboard_key_lxx_light"
+            android:src="@drawable/sym_keyboard_language_switch_lxx_light"
+            android:contentDescription="@string/switch_keyboard" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/button_key_space"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_keyboard_spacebar_lxx_light" />
+
+        <ImageButton
+            style="?android:attr/borderlessButtonStyle"
+            android:id="@+id/button_key_delete"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/btn_keyboard_key_lxx_light"
+            android:src="@drawable/sym_keyboard_delete_lxx_light"
+            android:layout_gravity="center"
+            android:contentDescription="@string/switch_keyboard" />
+
+        <com.codebutler.shrug.ActionKeyButton
+            style="?android:attr/actionButtonStyle"
+            android:id="@+id/button_key_action"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:background="@drawable/btn_keyboard_key_lxx_light"
+            android:src="@drawable/sym_keyboard_return_lxx_light"
+            android:layout_gravity="center"
+            android:contentDescription="@string/content_description_return" />
+    </LinearLayout>
+
+</com.codebutler.shrug.ShrugKeyboardView>
