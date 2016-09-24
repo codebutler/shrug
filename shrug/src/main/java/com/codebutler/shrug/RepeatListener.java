@@ -1,6 +1,7 @@
 package com.codebutler.shrug;
 
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,7 +19,7 @@ import android.view.View.OnTouchListener;
  * Based on code from here:
  * http://stackoverflow.com/questions/4284224/android-hold-button-to-repeat-action
  */
-public class RepeatListener implements OnTouchListener {
+class RepeatListener implements OnTouchListener {
 
     private final int mInitialInterval;
     private final int mNormalInterval;
@@ -35,14 +36,14 @@ public class RepeatListener implements OnTouchListener {
         }
     };
 
-    private View mDownView;
+    @Nullable private View mDownView;
 
     /**
      * @param initialInterval The interval after first click event
      * @param normalInterval The interval after second and subsequent click events
      * @param clickListener The OnClickListener, that will be called periodically
      */
-    public RepeatListener(int initialInterval, int normalInterval, OnClickListener clickListener) {
+    RepeatListener(int initialInterval, int normalInterval, OnClickListener clickListener) {
         if (clickListener == null) {
             throw new IllegalArgumentException("null runnable");
         }
@@ -56,6 +57,9 @@ public class RepeatListener implements OnTouchListener {
 
     @Override
     public boolean onTouch(View view, MotionEvent motionEvent) {
+        if (motionEvent.getPointerCount() > 1) {
+            return false;
+        }
         switch (motionEvent.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 mHandler.removeCallbacks(mHandlerRunnable);
@@ -67,8 +71,10 @@ public class RepeatListener implements OnTouchListener {
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
                 mHandler.removeCallbacks(mHandlerRunnable);
-                mDownView.setPressed(false);
-                mDownView = null;
+                if (mDownView != null) {
+                    mDownView.setPressed(false);
+                    mDownView = null;
+                }
                 return true;
         }
         return false;
