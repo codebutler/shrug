@@ -5,7 +5,7 @@ def askPassword() {
 }
 
 afterEvaluate {
-    validateReleaseSigning.doFirst {
+    validateSigningRelease.doFirst {
         def password = askPassword()
         signingConfig.storePassword = password
         signingConfig.keyPassword = password
@@ -14,7 +14,7 @@ afterEvaluate {
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '23.0.2'
+    buildToolsVersion '23.0.3'
 
     defaultConfig {
         applicationId 'com.codebutler.shrug'
@@ -55,4 +55,6 @@ repositories {
     jcenter()
 }
 
-dependencies { }
+dependencies {
+    compile 'com.android.support:support-annotations:24.2.1'
+}
